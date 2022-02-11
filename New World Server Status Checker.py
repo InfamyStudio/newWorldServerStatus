@@ -2,30 +2,32 @@ import requests
 import json
 import sys
 
-def serverInput():
+def serverInput(y):
+       apiKey = y
        while True:
               print("Enter 'List' To See All Servers/Status!")
-              print("Or Enter Server Name To See Statuts!")
+              print("Or Enter Server Name To See Status!")
               print("Or Enter 'E' To Stop The Program!")
               serverInput = input("Server Input: ").lower()
               if serverInput == "":
                      print("Invalid Server Name")
               elif serverInput == "list":
                      serverInput = ""
-                     serverRequest(serverInput)
+                     serverRequest(serverInput, apiKey)
               elif serverInput == "e":
                      exit()
               else:
                      print("==========================================")
-                     serverRequest(serverInput)
+                     serverRequest(serverInput, apiKey)
                             
-def serverRequest(x):
+def serverRequest(x,y):
        serverInput = x
+       apiKey = y
        url = "https://new-world-server-status.p.rapidapi.com/servers/" + serverInput
               
        headers = {
               'x-rapidapi-host': "new-world-server-status.p.rapidapi.com",
-              'x-rapidapi-key': ""
+              'x-rapidapi-key': apiKey
               }
 
        response = requests.request("GET", url, headers=headers)
@@ -41,8 +43,32 @@ def serverRequest(x):
                      print(serverName + " " + "Is Currently: " + serverStatus)
                      print("==========================================")
 
+def APIFileSetup():
+       try:
+              f = open("NewWorldStatusAPIKey.txt","r")
+              apikey = f.read()
+              f.close()
+              defaultServerFile(apikey)
+       except FileNotFoundError:
+              f = open("NewWorldStatusAPIKey.txt","w")
+              f.close()
+              keyInput()
 
-def defaultServerFile():
+def keyInput():
+       while True:
+              keyInput = input("Please Input Your API Key: ")
+              if keyInput == "":
+                     print("Invalid API key")
+              else:
+                     f = open("NewWorldStatusAPIKey.txt","w")
+                     f.write(keyInput)
+                     f = open("NewWorldStatusAPIKey.txt","r")
+                     apiKey = f.read()
+                     defaultServerFile(apiKey)
+                     break
+
+def defaultServerFile(apikey):
+       key = apikey
        try:
               f = open("defaultServer.txt","r")
               defaultServer = f.read()
@@ -56,9 +82,11 @@ def defaultServerFile():
               f.close()
        print("==========================================")
        print("Default Server Is: " + defaultServer)
-       serverRequest(defaultServer)
+       serverRequest(defaultServer, key)
+       changeDefaultServer(key)
 
-def changeDefaultServer():
+def changeDefaultServer(apiKey):
+       key = apiKey
        while True:
               changeDefault = input("Do You Want To Change Your Default Server? Enter Y(yes) or N(no): ").lower()
               print("==========================================")
@@ -71,18 +99,16 @@ def changeDefaultServer():
                                    f = open("defaultServer.txt","w")
                                    f.write(defaultServer)
                                    f.close()
+                                   print("==========================================")
                                    break
-                     print("==========================================")
-                     break
               elif changeDefault == "n":
+                     serverInput(key)
                      break
               else:
                      print("Invalid Input")
                      print("==========================================")
                                  
 
-if __name__ == "__main__":   
-       defaultServerFile()
-       changeDefaultServer()
-       serverInput()
+if __name__ == "__main__":
+       APIFileSetup()
        
