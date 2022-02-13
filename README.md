@@ -3,14 +3,16 @@
 New World Server Status Python Program To Check Status of All Servers!
 
 # Latest Release
-- Currently [V1.1](https://github.com/InfamyStudio/newWorldServerStatus/releases/tag/V1.1) is the latest release availble!
-- Added API setup within program instead of user manually entering API key into code!
-- Fixed typos
+- Currently [V1.2](https://github.com/InfamyStudio/newWorldServerStatus/releases/tag/V1.2) is the latest release availble!
+- Released minified source code for a quicker experience!
+- Updated Security Policy
+- Plans to expand feature list and talks with new API provider.
 
 # Released Minified Source
 - Run minified python version for an even quicker experience!
 
 # Release History
+- [V1.2](https://github.com/InfamyStudio/newWorldServerStatus/releases/tag/V1.2)
 - [V1.1](https://github.com/InfamyStudio/newWorldServerStatus/releases/tag/V1.1)
 - [V1.0](https://github.com/InfamyStudio/newWorldServerStatus/releases/tag/V1.0)
 
