@@ -7,6 +7,9 @@ New World Server Status Python Program To Check Status of All Servers!
 - Added API setup within program instead of user manually entering API key into code!
 - Fixed typos
 
+# Released Minified Source
+- Run minified python version for an even quicker experience!
+
 # Release History
 - [V1.1](https://github.com/InfamyStudio/newWorldServerStatus/releases/tag/V1.1)
 - [V1.0](https://github.com/InfamyStudio/newWorldServerStatus/releases/tag/V1.0)
