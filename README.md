@@ -1,3 +1,4 @@
+[![CodeQL](https://github.com/InfamyStudio/newWorldServerStatus/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/InfamyStudio/newWorldServerStatus/actions/workflows/codeql-analysis.yml)
 # New World Server Status
 New World Server Status Python Program To Check Status of All Servers!
 
@@ -18,7 +19,7 @@ New World Server Status Python Program To Check Status of All Servers!
 5) Run program and enjoy usage!
 
 ## Usage:
-1) After completing first time setup just boot the program up whenever and responde with Y or N to initial prompts
+1) After completing first time setup just boot the program up whenever and respond with Y or N to initial prompts
 2) You will then be able to quickly query any server hosted by the New World Game servers!
 
 ## About:
